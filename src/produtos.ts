@@ -1,5 +1,7 @@
-import type { Produto}
+import type { Produto, Categoria }
   from "./types";
+
+
 
 export const produtos: Produto[] = [
     {
@@ -213,4 +215,26 @@ export const produtos: Produto[] = [
         estoque: 30, 
     }
 
-]
+];
+
+export function listarProdutos(lista: Produto[]) {
+    console.table(lista); 
+    
+}
+
+export function buscarProdutoPorId(lista: Produto[], idProduto: number) {
+    const produtoSelecionado = lista.find(p => p.id === idProduto);
+    console.log(produtoSelecionado);
+}
+
+export function buscarProdutoPorNome(lista: Produto[], nomeProduto: string) {
+    const produtoSelecionado = lista.find(p => p.nome === nomeProduto);
+    console.log(produtoSelecionado);
+}
+
+export function filtrarPorCategoria(lista: Produto[], categoriaProduto: Categoria) {
+    const categoriaSelecionada = lista.filter(p => p.categoria === categoriaProduto);
+    console.table(categoriaSelecionada);
+
+    
+}

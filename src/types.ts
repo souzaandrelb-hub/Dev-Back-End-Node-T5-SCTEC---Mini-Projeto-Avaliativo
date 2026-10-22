@@ -16,22 +16,21 @@ export type Cliente = {
 }
 
 export type ItemCarrinho = {
-    produto: string;
+    produtoId: number;
     quantidade: number;
-    
 }
 
 export type Carrinho = {
     id: number;
-    cliente: string;
+    clienteId: number;
     itens: ItemCarrinho[];
-    valorTotal: number;
 }
 
-    export type Pedido = {
-        id: number;
-        cliente: string;
-        itens: ItemCarrinho[];
-        valorTotal: number;
-        dataPedido: Date;
-    }
+export type Pedido = {
+    id: number;
+    clienteId: number;
+    itens: ItemCarrinho[];
+    valorTotal: number;
+    dataPedido: Date;
+}
+

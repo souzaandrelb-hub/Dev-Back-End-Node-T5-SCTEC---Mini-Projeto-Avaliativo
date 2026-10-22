@@ -2,10 +2,10 @@ import type { Cliente } from "./types";
 
 export const clientes: Cliente[] = [
     {
-    id: 1,
-    nome: "Antônio João Vieira",
-    cpf: "529.982.247-25",
-    email: "antonio@gmail.com"       
+        id: 1,
+        nome: "Antônio João Vieira",
+        cpf: "529.982.247-25",
+        email: "antonio@gmail.com"       
     },
 
     {
