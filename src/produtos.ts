@@ -220,21 +220,45 @@ export const produtos: Produto[] = [
 export function listarProdutos(lista: Produto[]) {
     console.table(lista); 
     
-}
+};
 
 export function buscarProdutoPorId(lista: Produto[], idProduto: number) {
     const produtoSelecionado = lista.find(p => p.id === idProduto);
     console.log(produtoSelecionado);
-}
+};
 
 export function buscarProdutoPorNome(lista: Produto[], nomeProduto: string) {
     const produtoSelecionado = lista.find(p => p.nome === nomeProduto);
     console.log(produtoSelecionado);
-}
+};
 
 export function filtrarPorCategoria(lista: Produto[], categoriaProduto: Categoria) {
     const categoriaSelecionada = lista.filter(p => p.categoria === categoriaProduto);
-    console.table(categoriaSelecionada);
+    console.table(categoriaSelecionada);    
+};
 
-    
+export function adicionarProduto(
+  lista: Produto[],
+  produtoNovo: Produto
+): void {
+    const novoId = lista.length > 0
+    ? lista[lista.length - 1]!.id + 1
+    : 1;
+
+    produtoNovo.id = novoId;
+
+    lista.push(produtoNovo);
+    console.table(lista);
+};
+
+export function atualizarProduto (lista: Produto[], id: number, novoPreco: number) {
+    const item = produtos.find(p => p.id === id);
+    item!.preco = novoPreco;
+    console.table(lista);
 }
+
+export function removerProduto (lista: Produto[], id: number) {
+    lista.splice(id, 1);
+    console.table(lista);
+}
+

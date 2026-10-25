@@ -1,5 +1,6 @@
 export type Categoria = "Eletrônicos" | "Livros" | "Papelaria" |"Eletrodomésticos" | "Roupas" | "Calçados" | "Brinquedos";
 
+
 export type Produto = {
     id: number;
     nome: string;
@@ -11,7 +12,6 @@ export type Produto = {
 export type Cliente = {
     id: number;
     nome: string;
-    cpf: string;
     email: string;
 }
 

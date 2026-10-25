@@ -1,14 +1,42 @@
-import { produtos, listarProdutos, buscarProdutoPorId, buscarProdutoPorNome, filtrarPorCategoria } from "./produtos";
+import { clientes, cadastrarClientes, listarClientes, buscarClientePorId } from "./clientes";
+import { produtos, listarProdutos, buscarProdutoPorId, buscarProdutoPorNome, filtrarPorCategoria, adicionarProduto, atualizarProduto, removerProduto } from "./produtos";
+
+
+import type { Produto } from "./types";
+import type { Cliente } from "./types";
 
 
 listarProdutos(produtos);
-
-// function gerarNumeroAleatorio(1, 30) {
-//     return Math.floor(Math.random() * 30 ) + 1;
-// }
 
 buscarProdutoPorId(produtos, 9);
 
 buscarProdutoPorNome(produtos, "Chinelo");
 
 filtrarPorCategoria(produtos, "Livros")
+
+const novoProduto: Produto = {
+  id: 0, 
+  nome: "O Cortiço",
+  categoria: "Livros",
+  preco: 25,
+  estoque: 30
+};
+
+adicionarProduto(produtos, novoProduto);
+
+atualizarProduto(produtos, 4, 350);
+
+removerProduto(produtos, 11);
+
+const novoCliente: Cliente = {
+    id: 0,
+    nome: "Antônio João Vieira",
+    email: "antonio@gmail.com"
+};
+
+cadastrarClientes(clientes, novoCliente);
+
+listarClientes(clientes);
+
+// buscarClientePorId(clientes, 4);
+
