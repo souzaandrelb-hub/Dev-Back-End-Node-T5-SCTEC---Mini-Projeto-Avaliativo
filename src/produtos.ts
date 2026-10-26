@@ -228,7 +228,7 @@ export function buscarProdutoPorId(lista: Produto[], idProduto: number) {
 };
 
 export function buscarProdutoPorNome(lista: Produto[], nomeProduto: string) {
-    const produtoSelecionado = lista.find(p => p.nome === nomeProduto);
+    const produtoSelecionado = lista.find(p => p.nome == nomeProduto);
     console.log(produtoSelecionado);
 };
 
