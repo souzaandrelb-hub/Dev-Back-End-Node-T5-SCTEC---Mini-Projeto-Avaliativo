@@ -159,7 +159,7 @@ cadastrarClientes(clientes, novoCliente);
 Atualmente o sistema:
 
 
-- Ainda está em desenvolvimento nas funcionalidades de carrinho e pedidos.
+- Ainda está em desenvolvimento nas funcionalidades de carrinho.
 
 ---
 
