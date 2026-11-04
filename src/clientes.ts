@@ -32,42 +32,65 @@ export const clientes: Cliente[] = [
   },
 ];
 
-export function cadastrarClientes(lista: Cliente[], novoCliente: Cliente) {
-  let nomeEmailValido: boolean = true;
+// Cadastrar novo cliente
 
-  const novoId = lista.length > 0 ? lista[lista.length - 1]!.id + 1 : 1;
-  novoCliente.id = novoId;
-
-  const nomeExistente = lista.find(
-    (cliente) => cliente.nome === novoCliente.nome.trim(),
-  );
+export function cadastrarClientes(
+  lista: Cliente[], 
+  novoCliente: {
+    nome: string; 
+    email: string;
+  }
+) {
+  let novoId: number;
+ 
+  // Verificar o nome
   if (novoCliente.nome.trim().length === 0) {
-    console.log("Nome é obrigatório");
-    nomeEmailValido = false;
-  } else if (nomeExistente) {
-    console.log("Nome já cadastrado");
-    nomeEmailValido = false;
+    console.log("Digite um nome");
+    return;
   }
 
-  const emailExistente = lista.find(
-    (cliente) => cliente.email === novoCliente.email.trim(),
-  );
 
-  if (novoCliente.email.trim().length === 0) {
-    console.log("E-mail é obrigatório");
-    nomeEmailValido = false;
-  } else if (emailExistente) {
-    console.log("E-mail já cadastrado");
-    nomeEmailValido = false;
+  // Verificar e-mail
+  if(novoCliente.email.length === 0) {
+    console.log("Digite um e-mail");
+    return;
   }
 
-  if (nomeEmailValido) {
-    const novoId = lista.length > 0 ? lista[lista.length - 1]!.id + 1 : 1;
-    novoCliente.id = novoId;
+  if(!novoCliente.email.includes("@") && !novoCliente.email.includes(".")) {
+    console.log("Digite e-mail válido");
+    return;
+  } 
 
-    lista.push(novoCliente);
-    console.log("Cliente cadastrado com sucesso");
+
+  // Verificar duplicidade
+  const emailJaCadastrado = lista.find(c => c.email === novoCliente.email);
+  if(emailJaCadastrado) {
+    console.log("E-mail já utilizado para cadastro")
+    return
   }
+
+
+  // Gerar id
+
+  const ultimoCliente = lista[lista.length - 1]
+  
+  if (ultimoCliente) { 
+    novoId = ultimoCliente.id + 1;
+  } else {
+    novoId = 1;
+  }
+
+  const novoClienteComId = {
+    id: novoId,
+    nome: novoCliente.nome,
+    email:  novoCliente.email
+  }
+
+  // Inserir no array
+
+  lista.push(novoClienteComId);
+
+  console.log("Cliente castrado com sucesso")
 }
 
 export function listarClientes(lista: Cliente[]) {
@@ -75,6 +98,6 @@ export function listarClientes(lista: Cliente[]) {
 }
 
 export function buscarClientePorId(lista: Cliente[], idCliente: number) {
-  const clienteSelecionado = lista.find((c) => c.id === idCliente);
+  const clienteSelecionado = lista.find(c => c.id === idCliente);
   console.log(clienteSelecionado);
 }
