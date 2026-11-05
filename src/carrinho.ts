@@ -72,11 +72,34 @@ export function removerItemCarrinho(itensCarrinho: ItemCarrinho[], produtoId: nu
 
     export function alterarQuantidade(itensCarrinho: ItemCarrinho[], produtoId: number, quantidade: number) {
         const indice = itensCarrinho.findIndex(i => i.produtoId === produtoId)
+        const produtoAlterar = produtos.find(i => i.id === produtoId)
+        
+        if(!produtoAlterar) {
+            console.log("Produto não encontrado");
+            return;
+        }
 
         if(indice === -1) {
             console.log("Produto não encontrado no carrinho");
             return;
+        } 
+        
+
+        if(quantidade <= 0 ) {
+            console.log("Quantidade inválida");
+            return;
         }
+        if(quantidade > produtoAlterar.estoque) {
+            console.log("Estoque insuficiente");
+            return;
+        }
+        
+        itensCarrinho[indice]!.quantidade = quantidade;
+        
+    }
+
+    export function listarCarrinho(itensCarrinho: ItemCarrinho[]) {
+        console.table(itensCarrinho)
     }
 
 
@@ -93,10 +116,9 @@ export function removerItemCarrinho(itensCarrinho: ItemCarrinho[], produtoId: nu
          
 
 
-// export function alterarQuantidade()
 
 // export function calcularSubtotal()
 
 // export function calcularTotal()
 
-// export function listarCarrinho()
+// 
