@@ -66,8 +66,14 @@ console.log("                             ")
 console.log("========= Carrinho ==========");
 console.log("                             ")
 console.log("***Adicionar item carrinho***");
-adicionarItemCarrinho(produtos, 5, 2);
+adicionarItemCarrinho(5, 2);
+adicionarItemCarrinho(3, 4);
+adicionarItemCarrinho(4, 2);
+console.log("                             ");
+console.log("***Alterar quatidade de itens do carrinho***");
+console.log("                             ");
 
 
-// removerItemCarrinho(5, 2);
+
+
 

@@ -1,0 +1,22 @@
+{
+  "name": "mini-projeto-avaliativo",
+  "version": "1.0.0",
+  "description": "Sistema de gerenciamento de E-commerce",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souzaandrelb-hub/Dev-Back-End-Node-T5-SCTEC---Mini-Projeto-Avaliativo.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/souzaandrelb-hub/Dev-Back-End-Node-T5-SCTEC---Mini-Projeto-Avaliativo/issues"
+  },
+  "homepage": "https://github.com/souzaandrelb-hub/Dev-Back-End-Node-T5-SCTEC---Mini-Projeto-Avaliativo#readme",
+  "devDependencies": {
+    "@types/pg": "^8.23.1"
+  }
+}
