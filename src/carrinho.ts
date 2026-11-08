@@ -103,9 +103,6 @@ export function listarCarrinho() {
   }
 }
 
-export function calcularSubtotalItem(item: ItemCarrinho): number {
-  return item.precoUnitario * item.quantidade;
-}
 
 // Calcular Total
 
@@ -121,4 +118,3 @@ export function calcularTotal() {
 
 
 
-//calcularSubtotalItem(4);
